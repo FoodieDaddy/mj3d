@@ -1,0 +1,12 @@
+{
+  "name": "kawuxing",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev": "pnpm --filter @kawuxing/web dev",
+    "build": "pnpm --filter @kawuxing/web build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  }
+}

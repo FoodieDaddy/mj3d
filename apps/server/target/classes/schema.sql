@@ -1,0 +1,44 @@
+CREATE TABLE IF NOT EXISTS player_guest (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    guest_id VARCHAR(64) NOT NULL UNIQUE,
+    player_name VARCHAR(64),
+    behavior_score INT DEFAULT 50,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_login_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS game_record (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    game_id VARCHAR(64) NOT NULL UNIQUE,
+    room_id VARCHAR(64) NOT NULL,
+    winner_id VARCHAR(64),
+    total_rounds INT DEFAULT 0,
+    started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ended_at DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS game_round_record (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    game_id VARCHAR(64) NOT NULL,
+    round_number INT NOT NULL,
+    winner_id VARCHAR(64),
+    started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ended_at DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS behavior_score_log (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    player_id VARCHAR(64) NOT NULL,
+    game_id VARCHAR(64) NOT NULL,
+    delta INT NOT NULL,
+    reason VARCHAR(128),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS asset_record (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    asset_type VARCHAR(32) NOT NULL,
+    asset_key VARCHAR(256) NOT NULL,
+    file_size BIGINT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

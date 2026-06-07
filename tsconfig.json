@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "@kawuxing/protocol": ["./packages/protocol/src"],
+      "@kawuxing/web-core": ["./packages/web-core/src"],
+      "@kawuxing/shared": ["./packages/shared/src"]
+    }
+  },
+  "include": [
+    "apps/web/src/**/*.ts",
+    "apps/web/src/**/*.vue",
+    "packages/*/src/**/*.ts"
+  ]
+}
